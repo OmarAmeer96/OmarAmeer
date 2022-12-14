@@ -1,0 +1,15 @@
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\bin\Debug\net6.0\Omar.exe
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\bin\Debug\net6.0\Omar.deps.json
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\bin\Debug\net6.0\Omar.runtimeconfig.json
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\bin\Debug\net6.0\Omar.dll
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\bin\Debug\net6.0\Omar.pdb
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.csproj.AssemblyReference.cache
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.AssemblyInfoInputs.cache
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.AssemblyInfo.cs
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.csproj.CoreCompileInputs.cache
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.dll
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\refint\Omar.dll
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.pdb
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\Omar.genruntimeconfig.cache
+C:\Users\omara\Documents\FCI 3 2002\SUBJECTS\OSS\Sections\Sec 10 (oop Exer)\oop_Exer\obj\Debug\net6.0\ref\Omar.dll

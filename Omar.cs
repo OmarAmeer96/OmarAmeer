@@ -1,1 +1,1 @@
-Console.Writeline("OOP Exersices");
+Console.WriteLine("OOP Exercises");
