@@ -134,26 +134,51 @@
 
 // ----------------------------------------------------------------------------------------
 
+// using System;
+// namespace CalculatorApplication{
+//     class NumberManipulator{
+//         int max;
+//         public int FindMax(int num1, int num2){
+//             if(num1 > num2){
+//                 max = num1;
+//             }
+//             else{
+//                 max = num2;
+//             }
+//             return max;
+//         }
+
+//         static void Main(String[] args){
+//             NumberManipulator obj = new NumberManipulator();
+//             int a = 100;
+//             int b = 200;
+//             int res = obj.FindMax(a, b);
+//             Console.WriteLine("Max is: " + res);
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
 using System;
 namespace CalculatorApplication{
-    class NumberManipulator{
-        int max;
-        public int FindMax(int num1, int num2){
-            if(num1 > num2){
-                max = num1;
+    class Factorial{
+        public int Fact(int num){
+            int result;
+            if(num == 1){
+                return 1;
+            }else{
+                result = Fact(num - 1) * num;
+                return result;
             }
-            else{
-                max = num2;
-            }
-            return max;
         }
-
+    }
+    class Test{
         static void Main(String[] args){
-            NumberManipulator obj = new NumberManipulator();
-            int a = 100;
-            int b = 200;
-            int res = obj.FindMax(a, b);
-            Console.WriteLine("Max is: " + res);
+            Factorial obj = new Factorial();
+            Console.Write("Please, Enter a number: ");
+            int input = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Factorial of " + input + " = " + obj.Fact(input));
         }
     }
 }
