@@ -108,26 +108,52 @@
 
 // ----------------------------------------------------------------------------------------
 
+// using System;
+// class NumberManipulator
+// {
+//     int result;  //*
+//     public int FindMax(int num1, int num2)
+//     {
+//         if (num1 > num2)
+//             result = num1;
+//         else
+//             result = num2;
+//         return result;
+//     }
+//     public void Display()
+//     {
+//         Console.WriteLine("Max is: " + result);
+//     }
+//     static void Main(String[] args)
+//     {
+//         NumberManipulator r = new NumberManipulator();
+//         r.FindMax(5, 4);
+//         r.Display();
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
 using System;
-class NumberManipulator
-{
-    int result;  //*
-    public int FindMax(int num1, int num2)
-    {
-        if (num1 > num2)
-            result = num1;
-        else
-            result = num2;
-        return result;
-    }
-    public void Display()
-    {
-        Console.WriteLine("Max is: " + result);
-    }
-    static void Main(String[] args)
-    {
-        NumberManipulator r = new NumberManipulator();
-        r.FindMax(5, 4);
-        r.Display();
+namespace CalculatorApplication{
+    class NumberManipulator{
+        int max;
+        public int FindMax(int num1, int num2){
+            if(num1 > num2){
+                max = num1;
+            }
+            else{
+                max = num2;
+            }
+            return max;
+        }
+
+        static void Main(String[] args){
+            NumberManipulator obj = new NumberManipulator();
+            int a = 100;
+            int b = 200;
+            int res = obj.FindMax(a, b);
+            Console.WriteLine("Max is: " + res);
+        }
     }
 }
