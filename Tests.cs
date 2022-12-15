@@ -73,35 +73,61 @@
 
 // ----------------------------------------------------------------------------------------
 
-// internal access specifier ==> (visible in the same application only)
+// // internal access specifier ==> (visible in the same application only)
+// using System;
+// namespace RectangleApplication
+// {
+//     class Rectangle
+//     {
+//         internal double length;
+//         internal double width;
+
+//         double GitArea()
+//         {
+//             return length * width;
+//         }
+//         public void display()
+//         {
+//             Console.WriteLine("Length: " + length);
+//             Console.WriteLine("Width: " + width);
+//             Console.WriteLine("Area: " + GitArea());
+//         }
+//     }
+
+//     class ExecuteRectangle
+//     {
+//         static void Main(String[] args)
+//         {
+//             Rectangle r = new Rectangle();
+//             r.length = 4.5;
+//             r.width = 3.5;
+//             r.display();
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
 using System;
-namespace RectangleApplication
+class NumberManipulator
 {
-    class Rectangle
+    int result;  //*
+    public int FindMax(int num1, int num2)
     {
-        internal double length;
-        internal double width;
-
-        double GitArea()
-        {
-            return length * width;
-        }
-        public void display()
-        {
-            Console.WriteLine("Length: " + length);
-            Console.WriteLine("Width: " + width);
-            Console.WriteLine("Area: " + GitArea());
-        }
+        if (num1 > num2)
+            result = num1;
+        else
+            result = num2;
+        return result;
     }
-
-    class ExecuteRectangle
+    public void Display()
     {
-        static void Main(String[] args)
-        {
-            Rectangle r = new Rectangle();
-            r.length = 4.5;
-            r.width = 3.5;
-            r.display();
-        }
+        Console.WriteLine("Max is: " + result);
+    }
+    static void Main(String[] args)
+    {
+        NumberManipulator r = new NumberManipulator();
+        r.FindMax(5, 4);
+        r.Display();
     }
 }
