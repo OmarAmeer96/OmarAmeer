@@ -160,25 +160,29 @@
 
 // ----------------------------------------------------------------------------------------
 
+// using System;
+// namespace CalculatorApplication{
+//     class Factorial{
+//         public int Fact(int num){
+//             int result;
+//             if(num == 1){
+//                 return 1;
+//             }else{
+//                 result = Fact(num - 1) * num;
+//                 return result;
+//             }
+//         }
+//     }
+//     class Test{
+//         static void Main(String[] args){
+//             Factorial obj = new Factorial();
+//             Console.Write("Please, Enter a number: ");
+//             int input = Convert.ToInt32(Console.ReadLine());
+//             Console.WriteLine("Factorial of " + input + " = " + obj.Fact(input));
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
 using System;
-namespace CalculatorApplication{
-    class Factorial{
-        public int Fact(int num){
-            int result;
-            if(num == 1){
-                return 1;
-            }else{
-                result = Fact(num - 1) * num;
-                return result;
-            }
-        }
-    }
-    class Test{
-        static void Main(String[] args){
-            Factorial obj = new Factorial();
-            Console.Write("Please, Enter a number: ");
-            int input = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Factorial of " + input + " = " + obj.Fact(input));
-        }
-    }
-}
