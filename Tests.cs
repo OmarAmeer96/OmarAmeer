@@ -221,7 +221,47 @@
 
 // ----------------------------------------------------------------------------------------
 
-// Sec 2 OOP
+// // Sec 2 OOP, Test 1
+// using System;
+// namespace ObjectOriented
+// {
+//     public class Car
+//     {
+//         public string? Name;
+//         public string? Color;
+
+//         public Car() { }
+//         public Car(string? name, string? color)
+//         {
+//             Name = name;
+//             Color = color;
+//         }
+//         public void print()
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}");
+//         }
+//     }
+//     public class Program
+//     {
+//         private static void Main(string[] args)
+//         {
+//             Console.Write("Name: ");
+//             var name = Console.ReadLine();
+//             Console.Write("Color: ");
+//             var color = Console.ReadLine();
+
+//             var obj = new Car(name, color);
+//             obj.print();
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
+using System;
+// Inheritance ==> allow's the sub class to inherite from the base class ({is a} relationship)-(Contains everything of the base class except {Constructors} and anything {private})
+
+// // Sec 2 OOP, Test 1
 using System;
 namespace ObjectOriented
 {
@@ -241,6 +281,19 @@ namespace ObjectOriented
             Console.WriteLine($"Car: {Name}, Color: {Color}");
         }
     }
+
+    public class ElectricCar : Car // class ElectricCar (Inherits) class Car.
+    {
+        public ElectricCar(string? name, string? color)
+        {
+            Name = name;
+            Color = color;
+        }
+        public void A()
+        {
+            print(); // i can use it
+        }
+    }
     public class Program
     {
         private static void Main(string[] args)
@@ -250,8 +303,10 @@ namespace ObjectOriented
             Console.Write("Color: ");
             var color = Console.ReadLine();
 
-            var obj = new Car(name, color);
+            var obj = new ElectricCar(name, color);
             obj.print();
         }
     }
 }
+
+// ----------------------------------------------------------------------------------------
