@@ -195,26 +195,63 @@
 // or
 // int[] arr4 = new int[] {1, 2, 3};
 
+// using System;
+// namespace ArrayApplication{
+//     class MyArray{
+//         static void Main(String[] args){
+//             int[] arr = new int[10];
+//             for(int i = 0; i < 10; i++){
+//                 arr[i] = i + 100;
+//             }
+//             for(int j = 0; j < 10; j++){
+//                 Console.WriteLine("Element[{0}] = {1}", j, arr[j]);
+//             }
+//             Console.WriteLine("---------------");
+//             int[] arr2 = new int[10];
+//             for(int a = 0; a < 10; a++){
+//                 arr2[a] = a + 100;
+//             }
+//             foreach(int b in arr2){
+//                 int a = b - 100;
+//                 Console.WriteLine("Element[{0}] = {1}", a, b);
+//             }
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
+// Sec 2 OOP
 using System;
-namespace ArrayApplication{
-    class MyArray{
-        static void Main(String[] args){
-            int[] arr = new int[10];
-            for(int i = 0; i < 10; i++){
-                arr[i] = i + 100;
-            }
-            for(int j = 0; j < 10; j++){
-                Console.WriteLine("Element[{0}] = {1}", j, arr[j]);
-            }
-            Console.WriteLine("---------------");
-            int[] arr2 = new int[10];
-            for(int a = 0; a < 10; a++){
-                arr2[a] = a + 100;
-            }
-            foreach(int b in arr2){
-                int a = b - 100;
-                Console.WriteLine("Element[{0}] = {1}", a, b);
-            }
+namespace ObjectOriented
+{
+    public class Car
+    {
+        public string? Name;
+        public string? Color;
+
+        public Car() { }
+        public Car(string? name, string? color)
+        {
+            Name = name;
+            Color = color;
+        }
+        public void print()
+        {
+            Console.WriteLine($"Car: {Name}, Color: {Color}");
+        }
+    }
+    public class Program
+    {
+        private static void Main(string[] args)
+        {
+            Console.Write("Name: ");
+            var name = Console.ReadLine();
+            Console.Write("Color: ");
+            var color = Console.ReadLine();
+
+            var obj = new Car(name, color);
+            obj.print();
         }
     }
 }
