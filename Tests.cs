@@ -258,7 +258,7 @@
 
 // ----------------------------------------------------------------------------------------
 
-using System;
+// using System;
 // Inheritance ==> allow's the sub class to inherite from the base class ({is a} relationship)-(Contains everything of the base class except {Constructors} and anything {private})
 
 // // Sec 2 OOP, Test 1
@@ -342,7 +342,7 @@ using System;
 //             Battery = battery;
 //         }
         
-//         public override void print()
+//         public override void print() // derived class can not override any method from the base class without virrtual in the base class
 //         {
 //             Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
 //         }
