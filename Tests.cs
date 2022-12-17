@@ -341,7 +341,7 @@
 //             Color = color;
 //             Battery = battery;
 //         }
-        
+
 //         public override void print() // derived class can not override any method from the base class without virrtual in the base class
 //         {
 //             Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
@@ -384,6 +384,7 @@ namespace ObjectOriented
         {
             Console.WriteLine($"Car: {Name}, Color: {Color}");
         }
+        public virtual void start(){ } // because each type of cars starts with different ways so i will override this method in all of these ways
     }
 
     public class ElectricCar : Car // class ElectricCar (Inherits) class Car.
@@ -395,10 +396,14 @@ namespace ObjectOriented
             Color = color;
             Battery = battery;
         }
-        
+
         public override void print()
         {
             Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
+        }
+        public override void start()
+        {
+            Console.WriteLine("Starting...");
         }
     }
     public class Program
