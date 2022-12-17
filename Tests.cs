@@ -262,11 +262,115 @@ using System;
 // Inheritance ==> allow's the sub class to inherite from the base class ({is a} relationship)-(Contains everything of the base class except {Constructors} and anything {private})
 
 // // Sec 2 OOP, Test 1
+// using System;
+// namespace ObjectOriented
+// {
+//     public class Car
+//     {
+//         public string? Name;
+//         public string? Color;
+
+//         public Car() { }
+//         public Car(string? name, string? color)
+//         {
+//             Name = name;
+//             Color = color;
+//         }
+//         public void print()
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}");
+//         }
+//     }
+
+//     public class ElectricCar : Car // class ElectricCar (Inherits) class Car.
+//     {
+//         public ElectricCar(string? name, string? color)
+//         {
+//             Name = name;
+//             Color = color;
+//         }
+//         public void A()
+//         {
+//             print(); // i can use it
+//         }
+//     }
+//     public class Program
+//     {
+//         private static void Main(string[] args)
+//         {
+//             Console.Write("Name: ");
+//             var name = Console.ReadLine();
+//             Console.Write("Color: ");
+//             var color = Console.ReadLine();
+
+//             var obj = new ElectricCar(name, color);
+//             obj.print();
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
+// using System;
+// namespace ObjectOriented
+// {
+//     public class Car
+//     {
+//         public int Battery;
+//         public string? Name;
+//         public string? Color;
+
+//         public Car() { }
+//         public Car(string? name, string? color)
+//         {
+//             Name = name;
+//             Color = color;
+//         }
+//         public virtual void print() // Virtual ==> I can not (override) this method without (virtual)
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}");
+//         }
+//     }
+
+//     public class ElectricCar : Car // class ElectricCar (Inherits) class Car.
+//     {
+//         public ElectricCar(string? name, string? color, int battery)
+//         {
+
+//             Name = name;
+//             Color = color;
+//             Battery = battery;
+//         }
+        
+//         public override void print()
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
+//         }
+//     }
+//     public class Program
+//     {
+//         private static void Main(string[] args)
+//         {
+//             Console.Write("Name: ");
+//             var name = Console.ReadLine();
+//             Console.Write("Color: ");
+//             var color = Console.ReadLine();
+//             Console.Write("Battery: ");
+//             var battery = Convert.ToInt32(Console.ReadLine());
+//             var obj = new ElectricCar(name, color, battery);
+//             obj.print(); // using the (Print) method in the ElectricCar class not in the Car class
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
 using System;
 namespace ObjectOriented
 {
     public class Car
     {
+        public int Battery;
         public string? Name;
         public string? Color;
 
@@ -276,7 +380,7 @@ namespace ObjectOriented
             Name = name;
             Color = color;
         }
-        public void print()
+        public virtual void print() // Virtual ==> I can not (override) this method without (virtual)
         {
             Console.WriteLine($"Car: {Name}, Color: {Color}");
         }
@@ -284,14 +388,17 @@ namespace ObjectOriented
 
     public class ElectricCar : Car // class ElectricCar (Inherits) class Car.
     {
-        public ElectricCar(string? name, string? color)
+        public ElectricCar(string? name, string? color, int battery)
         {
+
             Name = name;
             Color = color;
+            Battery = battery;
         }
-        public void A()
+        
+        public override void print()
         {
-            print(); // i can use it
+            Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
         }
     }
     public class Program
@@ -302,9 +409,10 @@ namespace ObjectOriented
             var name = Console.ReadLine();
             Console.Write("Color: ");
             var color = Console.ReadLine();
-
-            var obj = new ElectricCar(name, color);
-            obj.print();
+            Console.Write("Battery: ");
+            var battery = Convert.ToInt32(Console.ReadLine());
+            var obj = new ElectricCar(name, color, battery);
+            obj.print(); // using the (Print) method in the ElectricCar class not in the Car class
         }
     }
 }
