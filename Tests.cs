@@ -737,93 +737,93 @@
 
 // ----------------------------------------------------------------------------------------
 
-// Definition & Implementation
-// Ex ==> Car Obj = new Tesla(color, battery);
-// Definition Type ==> Car obj ==> I'am Using things Defined in this type/class
-// Implementation Type ==> new Tesla ==> I'am Using things Implemented in this type/class
-// Ex of difference between defintion and implementation:
-// ==> private static Hello() {Console.WriteLine("Helllllo");}
-//                    -----    ------------------------------
-//                  Definition         Implementation 
-//                of this method       of this method
-using System;
-namespace ObjectOriented
-{
-    public abstract class Car
-    {
-        public int Battery;
-        public string? Name;
-        public string? Color;
+// // Definition & Implementation
+// // Ex ==> Car Obj = new Tesla(color, battery);
+// // Definition Type ==> Car obj ==> I'am Using things Defined in this type/class
+// // Implementation Type ==> new Tesla ==> I'am Using things Implemented in this type/class
+// // Ex of difference between defintion and implementation:
+// // ==> private static Hello() {Console.WriteLine("Helllllo");}
+// //                    -----    ------------------------------
+// //                  Definition         Implementation 
+// //                of this method       of this method
+// using System;
+// namespace ObjectOriented
+// {
+//     public abstract class Car
+//     {
+//         public int Battery;
+//         public string? Name;
+//         public string? Color;
 
-        public Car() { }
-        public Car(string? name, string? color)
-        {
-            Name = name;
-            Color = color;
-        }
-        public virtual void print() // Virtual ==> I can not (override) this method without (virtual)
-        {
-            Console.WriteLine($"Car: {Name}, Color: {Color}");
-        }
-        public void stop() { }
-    }
+//         public Car() { }
+//         public Car(string? name, string? color)
+//         {
+//             Name = name;
+//             Color = color;
+//         }
+//         public virtual void print() // Virtual ==> I can not (override) this method without (virtual)
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}");
+//         }
+//         public void stop() { }
+//     }
 
-    public abstract class ElectricCar : Car
-    // class ElectricCar (Inherits) class Car.
-    // if in this class i do not wnt to implement the start method too so i should make this class abstract too
-    {
-        public ElectricCar(string? name, string? color, int battery)
-        {
+//     public abstract class ElectricCar : Car
+//     // class ElectricCar (Inherits) class Car.
+//     // if in this class i do not wnt to implement the start method too so i should make this class abstract too
+//     {
+//         public ElectricCar(string? name, string? color, int battery)
+//         {
 
-            Name = name;
-            Color = color;
-            Battery = battery;
-        }
+//             Name = name;
+//             Color = color;
+//             Battery = battery;
+//         }
 
-        public sealed override void print()
-        {
-            base.print(); // to use the print method in Car class and only extend it here (add what i want in it not write all of it again)
-            stop(); // do not need to Base.stop because ide will undestand that i want stop in the Car class because no any stop method else is exist
-            Console.WriteLine($"Battery: {Battery}");
-        }
-    }
+//         public sealed override void print()
+//         {
+//             base.print(); // to use the print method in Car class and only extend it here (add what i want in it not write all of it again)
+//             stop(); // do not need to Base.stop because ide will undestand that i want stop in the Car class because no any stop method else is exist
+//             Console.WriteLine($"Battery: {Battery}");
+//         }
+//     }
 
-    public sealed class Tesla : ElectricCar
-    {
-        public Tesla(string? color, int battery) : base("Tesla", color, battery) // override for constructors
-        {
-            Color = color;
-            Battery = battery;
-        }
-        public void start()
-        {
-            Console.WriteLine("Starting...");
-        }
-    }
+//     public sealed class Tesla : ElectricCar
+//     {
+//         public Tesla(string? color, int battery) : base("Tesla", color, battery) // override for constructors
+//         {
+//             Color = color;
+//             Battery = battery;
+//         }
+//         public void start()
+//         {
+//             Console.WriteLine("Starting...");
+//         }
+//     }
 
-    public class Nissan : Car
-    {
-        public Nissan(string? color) : base("Nissan", color)
-        {
-            Color = color;
-        }
-    }
-    public class Program
-    {
-        private static void Main(string[] args)
-        {
-            Console.Write("Color: ");
-            var color = Console.ReadLine();
-            Console.Write("Battery: ");
-            var battery = Convert.ToInt32(Console.ReadLine());
-            Nissan obj = new Nissan(color);
-            PrintCar(obj);
-        }
-        private static void PrintCar(Nissan obj)
-        {
-            obj.print();
-        }
-    }
-}
+//     public class Nissan : Car
+//     {
+//         public Nissan(string? color) : base("Nissan", color)
+//         {
+//             Color = color;
+//         }
+//     }
+//     public class Program
+//     {
+//         private static void Main(string[] args)
+//         {
+//             Console.Write("Color: ");
+//             var color = Console.ReadLine();
+//             Console.Write("Battery: ");
+//             var battery = Convert.ToInt32(Console.ReadLine());
+//             Nissan obj = new Nissan(color);
+//             PrintCar(obj);
+//         }
+//         private static void PrintCar(Nissan obj)
+//         {
+//             obj.print();
+//         }
+//     }
+// }
 
 // ----------------------------------------------------------------------------------------
