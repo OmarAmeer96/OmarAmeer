@@ -2,7 +2,7 @@
 using System;
 namespace Tasks
 {
-    public abstract class Person
+    public class Person
     {
         public string Name;
         public int Age;
@@ -11,7 +11,9 @@ namespace Tasks
             Name = name;
             Age = age;
         }
-        public abstract void Print();
+        public virtual void Print() {
+            Console.WriteLine($"My name is {Name}, my age is {Age}");
+        }
     }
 
     public class Student : Person
@@ -31,12 +33,26 @@ namespace Tasks
     public class Database
     {
         private int _currentIndex;
-        public Person[] Peaple = new Person[50];
-        public void AddStudent(Student student){
-            Peaple[_currentIndex++] = student;
+        public Person[] People = new Person[50];
+        public void AddStudent(Student student)
+        {
+            People[_currentIndex++] = student;
         }
-        public void AddStaff(Staff staff){
-            Peaple[_currentIndex++] = staff;
+        public void AddStaff(Staff staff)
+        {
+            People[_currentIndex++] = staff;
+        }
+        public void AddPerson(Person person)
+        {
+            People[_currentIndex++] = person;
+        }
+
+        public void PrintAll()
+        {
+            for (var i = 0; i < _currentIndex; i++)
+            {
+                People[i].Print();
+            }
         }
     }
 
@@ -44,8 +60,10 @@ namespace Tasks
     {
         public double Salary;
         public int JoinYear;
-        public Staff(string name, int age, double salary, int JoinYear) : base(name, age)
+        public Staff(string name, int age, double salary, int joinYear) : base(name, age)
         {
+            Salary = salary;
+            JoinYear = joinYear;
         }
         public override void Print()
         {
@@ -59,18 +77,63 @@ namespace Tasks
         {
             var database = new Database();
 
-            Console.Write("Please, enter student's name: ");
-            var name = Console.ReadLine();
-            Console.Write("Please, enter student's age: ");
-            var age = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Please, enter student's year: ");
-            var year = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Please, enter student's gpa: ");
-            var gpa = Convert.ToSingle(Console.ReadLine());
+            while (true)
+            {
+                Console.WriteLine("1) Add Student - 2) Add Staff - 3) Print All");
+                Console.Write("Your Option: ");
 
-            var student = new Student(name!, age, year, gpa);
+                var option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Console.Write("Please, enter student's name: ");
+                        var name = Console.ReadLine();
+                        Console.Write("Please, enter student's age: ");
+                        var age = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Please, enter student's year: ");
+                        var year = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Please, enter student's gpa: ");
+                        var gpa = Convert.ToSingle(Console.ReadLine());
 
-            database.AddStudent(student);
+                        var student = new Student(name!, age, year, gpa);
+
+                        database.AddStudent(student);
+                        break;
+
+                    case 2:
+                        Console.Write("Please, enter name: ");
+                        var name2 = Console.ReadLine();
+                        Console.Write("Please, enter age: ");
+                        var age2 = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Please, enter salary: ");
+                        var salary = Convert.ToDouble(Console.ReadLine());
+                        Console.Write("Please, enter join year: ");
+                        var joinYear = Convert.ToInt32(Console.ReadLine());
+
+                        var staff = new Staff(name2!, age2, salary, joinYear);
+
+                        database.AddStaff(staff);
+                        break;
+                    case 3:
+                        Console.Write("Please, enter person's name: ");
+                        var name3 = Console.ReadLine();
+                        Console.Write("Please, enter person's age: ");
+                        var age3 = Convert.ToInt32(Console.ReadLine());
+
+                        var person = new Person(name3!, age3);
+
+                        database.AddPerson(person);
+                        break;
+
+                    case 4:
+                        database.PrintAll();
+                        break;
+
+                    default:
+                        Console.WriteLine("Please, Enter a correct option {1 - 2 - 3 - 4}");
+                        break;
+                }
+            }
         }
     }
 }
