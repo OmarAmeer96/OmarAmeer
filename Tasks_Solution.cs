@@ -37,6 +37,19 @@ namespace Tasks
         }
     }
 
+    public class Staff : Person
+    {
+        public double Salary;
+        public int JoinYear;
+        public Staff(string name, int age, double salary, int JoinYear) : base(name, age)
+        {
+        }
+        public override void Print()
+        {
+            Console.WriteLine($"My name is {Name}, my age is {Age}, my salary is {Salary}");
+        }
+    }
+
     public class Program
     {
         private static void Main(string[] args)
