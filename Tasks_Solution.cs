@@ -37,6 +37,15 @@ namespace Tasks
         }
     }
 
+    public class Database
+    {
+        private int _currentIndex;
+        public Person[] Peaple = new Person[50];
+        public void AddStudent(Student student){
+            Peaple[_currentIndex++] = student;
+        }
+    }
+
     public class Program
     {
         private static void Main(string[] args)
