@@ -517,6 +517,8 @@ namespace ObjectOriented
             Console.WriteLine($"Car: {Name}, Color: {Color}");
         }
         public abstract void start(); // Abstract because this method does not have implementation, and the class contains it shoud be abstract too
+
+        public void stop(){}
     }
 
     public abstract class ElectricCar : Car
@@ -534,7 +536,8 @@ namespace ObjectOriented
         public sealed override void print()
         {
             base.print(); // to use the print method in Car class and only extend it here (add what i want in it not write all of it again)
-            Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
+            stop(); // do not need to Base.stop because ide will undestand that i want stop in the Car class because no any stop method else is exist
+            Console.WriteLine($"Battery: {Battery}");
         }
     }
 
