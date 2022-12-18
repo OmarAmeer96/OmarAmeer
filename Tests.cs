@@ -365,10 +365,72 @@
 
 // ----------------------------------------------------------------------------------------
 
+// // Without abstract
+// using System;
+// namespace ObjectOriented
+// {
+//     public class Car
+//     {
+//         public int Battery;
+//         public string? Name;
+//         public string? Color;
+
+//         public Car() { }
+//         public Car(string? name, string? color)
+//         {
+//             Name = name;
+//             Color = color;
+//         }
+//         public virtual void print() // Virtual ==> I can not (override) this method without (virtual)
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}");
+//         }
+//         public virtual void start(){ } // because each type of cars starts with different ways so i will override this method in all of these ways
+//     }
+
+//     public class ElectricCar : Car // class ElectricCar (Inherits) class Car.
+//     {
+//         public ElectricCar(string? name, string? color, int battery)
+//         {
+
+//             Name = name;
+//             Color = color;
+//             Battery = battery;
+//         }
+
+//         public override void print()
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
+//         }
+//         public override void start()
+//         {
+//             Console.WriteLine("Starting...");
+//         }
+//     }
+//     public class Program
+//     {
+//         private static void Main(string[] args)
+//         {
+//             Console.Write("Name: ");
+//             var name = Console.ReadLine();
+//             Console.Write("Color: ");
+//             var color = Console.ReadLine();
+//             Console.Write("Battery: ");
+//             var battery = Convert.ToInt32(Console.ReadLine());
+//             var obj = new ElectricCar(name, color, battery);
+//             obj.print(); // using the (Print) method in the ElectricCar class not in the Car class
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
+// same as last one but With abstract
+// Abstract ==> something does not have a full imlementaion
 using System;
 namespace ObjectOriented
 {
-    public class Car
+    public abstract class Car
     {
         public int Battery;
         public string? Name;
@@ -384,10 +446,12 @@ namespace ObjectOriented
         {
             Console.WriteLine($"Car: {Name}, Color: {Color}");
         }
-        public virtual void start(){ } // because each type of cars starts with different ways so i will override this method in all of these ways
+        public abstract void start(); // Abstract because this method does not have implementation, and the class contains it shoud be abstract too
     }
 
-    public class ElectricCar : Car // class ElectricCar (Inherits) class Car.
+    public abstract class ElectricCar : Car
+    // class ElectricCar (Inherits) class Car.
+    // if in this class i do not wnt to implement the start method too so i should make this class abstract too
     {
         public ElectricCar(string? name, string? color, int battery)
         {
@@ -401,6 +465,15 @@ namespace ObjectOriented
         {
             Console.WriteLine($"Car: {Name}, Color: {Color}, Battery: {Battery}");
         }
+    }
+
+    public class Tesla : ElectricCar
+    {
+        public Tesla(string? color, int battery) : base("Tesla", color, battery) // override for constructors
+        {
+            Color = color;
+            Battery = battery;
+        }
         public override void start()
         {
             Console.WriteLine("Starting...");
@@ -410,14 +483,12 @@ namespace ObjectOriented
     {
         private static void Main(string[] args)
         {
-            Console.Write("Name: ");
-            var name = Console.ReadLine();
             Console.Write("Color: ");
             var color = Console.ReadLine();
             Console.Write("Battery: ");
             var battery = Convert.ToInt32(Console.ReadLine());
-            var obj = new ElectricCar(name, color, battery);
-            obj.print(); // using the (Print) method in the ElectricCar class not in the Car class
+            var obj = new Tesla(color, battery);
+            obj.print();
         }
     }
 }
