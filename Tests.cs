@@ -260,6 +260,7 @@
 
 // using System;
 // Inheritance ==> allow's the sub class to inherite from the base class ({is a} relationship)-(Contains everything of the base class except {Constructors} and anything {private})
+// inheritance is a Class Property
 
 // // Sec 2 OOP, Test 1
 // using System;
@@ -496,7 +497,81 @@
 
 // ----------------------------------------------------------------------------------------
 
-// Abstract ==> part 2
+// // Abstract ==> part 2
+// using System;
+// namespace ObjectOriented
+// {
+//     public abstract class Car
+//     {
+//         public int Battery;
+//         public string? Name;
+//         public string? Color;
+
+//         public Car() { }
+//         public Car(string? name, string? color)
+//         {
+//             Name = name;
+//             Color = color;
+//         }
+//         public virtual void print() // Virtual ==> I can not (override) this method without (virtual)
+//         {
+//             Console.WriteLine($"Car: {Name}, Color: {Color}");
+//         }
+//         public abstract void start(); // Abstract because this method does not have implementation, and the class contains it shoud be abstract too
+
+//         public void stop(){}
+//     }
+
+//     public abstract class ElectricCar : Car
+//     // class ElectricCar (Inherits) class Car.
+//     // if in this class i do not wnt to implement the start method too so i should make this class abstract too
+//     {
+//         public ElectricCar(string? name, string? color, int battery)
+//         {
+
+//             Name = name;
+//             Color = color;
+//             Battery = battery;
+//         }
+
+//         public sealed override void print()
+//         {
+//             base.print(); // to use the print method in Car class and only extend it here (add what i want in it not write all of it again)
+//             stop(); // do not need to Base.stop because ide will undestand that i want stop in the Car class because no any stop method else is exist
+//             Console.WriteLine($"Battery: {Battery}");
+//         }
+//     }
+
+//     public sealed class Tesla : ElectricCar
+//     {
+//         public Tesla(string? color, int battery) : base("Tesla", color, battery) // override for constructors
+//         {
+//             Color = color;
+//             Battery = battery;
+//         }
+//         public override void start()
+//         {
+//             Console.WriteLine("Starting...");
+//         }
+//     }
+//     public class Program
+//     {
+//         private static void Main(string[] args)
+//         {
+//             Console.Write("Color: ");
+//             var color = Console.ReadLine();
+//             Console.Write("Battery: ");
+//             var battery = Convert.ToInt32(Console.ReadLine());
+//             var obj = new Tesla(color, battery);
+//             obj.print();
+//         }
+//     }
+// }
+
+// ----------------------------------------------------------------------------------------
+
+// Polymorphism ==> is the ability of the object to take more than one shape
+// polymorphism is an objeect property
 using System;
 namespace ObjectOriented
 {
@@ -516,9 +591,7 @@ namespace ObjectOriented
         {
             Console.WriteLine($"Car: {Name}, Color: {Color}");
         }
-        public abstract void start(); // Abstract because this method does not have implementation, and the class contains it shoud be abstract too
-
-        public void stop(){}
+        public void stop() { }
     }
 
     public abstract class ElectricCar : Car
@@ -548,9 +621,17 @@ namespace ObjectOriented
             Color = color;
             Battery = battery;
         }
-        public override void start()
+        public void start()
         {
             Console.WriteLine("Starting...");
+        }
+    }
+
+    public class Nissan : Car
+    {
+        public Nissan(string? color) : base("Nissan", color)
+        {
+            Color = color;
         }
     }
     public class Program
@@ -561,7 +642,11 @@ namespace ObjectOriented
             var color = Console.ReadLine();
             Console.Write("Battery: ");
             var battery = Convert.ToInt32(Console.ReadLine());
-            var obj = new Tesla(color, battery);
+            Tesla obj = new Tesla(color, battery);
+            PrintCar(obj);
+        }
+        private static void PrintCar(Tesla obj)
+        {
             obj.print();
         }
     }
