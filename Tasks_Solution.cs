@@ -35,6 +35,9 @@ namespace Tasks
         public void AddStudent(Student student){
             Peaple[_currentIndex++] = student;
         }
+        public void AddStaff(Staff staff){
+            Peaple[_currentIndex++] = staff;
+        }
     }
 
     public class Staff : Person
