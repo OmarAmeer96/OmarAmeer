@@ -4,8 +4,8 @@ namespace Tasks
 {
     public class Person
     {
-        public string? Name;
-        public int Age;
+        private string? _Name;
+        private int _Age;
         public Person(string name, int age)
         {
             if (name == null || name == "" || name.Length >= 32)
@@ -16,27 +16,47 @@ namespace Tasks
             {
                 throw new Exception("Invalid Age!");
             }
-            Name = name!;
-            Age = age;
+            _Name = name!;
+            _Age = age;
+        }
+
+        public string GetName() => _Name!;
+
+        public int GetAge() => _Age;
+
+        public void SetName(string name)
+        {
+            _Name = name;
         }
         public virtual void Print()
         {
-            Console.WriteLine($"My name is {Name}, my age is {Age}");
+            Console.WriteLine($"My name is {_Name}, my age is {_Age}");
         }
     }
 
     public class Student : Person
     {
+
         public int Year;
         public float Gpa;
         public Student(string name, int age, int year, float gpa) : base(name, age)
         {
+            if (year < 1 || year > 5)
+            {
+                throw new Exception("Invalid Year!");
+            }
+
+            if (gpa < 0 || gpa > 4)
+            {
+                throw new Exception("Invalid Gpa!");
+            }
+
             Year = year;
             Gpa = gpa;
         }
         public override void Print()
         {
-            Console.WriteLine($"My name is {Name}, my age is {Age}, my gpa is {Gpa}");
+            Console.WriteLine($"My name is {GetName()}, my age is {GetAge()}, my gpa is {Gpa}");
         }
     }
     public class Database
@@ -71,12 +91,21 @@ namespace Tasks
         public int JoinYear;
         public Staff(string name, int age, double salary, int joinYear) : base(name, age)
         {
+            if (salary < 0 || salary > 120000)
+            {
+                throw new Exception("Invalid Salary!");
+            }
+
+            if(joinYear - age <= 21){
+                throw new Exception("Invalid Join Year!");
+            }
+
             Salary = salary;
             JoinYear = joinYear;
         }
         public override void Print()
         {
-            Console.WriteLine($"My name is {Name}, my age is {Age}, my salary is {Salary}");
+            Console.WriteLine($"My name is {GetName()}, my age is {GetAge()}, my salary is {Salary}");
         }
     }
 
@@ -110,7 +139,7 @@ namespace Tasks
 
                             database.AddStudent(student);
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             System.Console.WriteLine(e.Message);
                         }
@@ -132,7 +161,7 @@ namespace Tasks
 
                             database.AddStaff(staff);
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             System.Console.WriteLine(e.Message);
                         }
@@ -150,7 +179,7 @@ namespace Tasks
 
                             database.AddPerson(person);
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             System.Console.WriteLine(e.Message);
                         }
