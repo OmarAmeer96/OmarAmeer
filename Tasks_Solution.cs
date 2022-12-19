@@ -10,13 +10,11 @@ namespace Tasks
         {
             if (name == null || name == "" || name.Length >= 32)
             {
-                System.Console.WriteLine("Name is Invalid!");
-                return;
+                throw new Exception("Invalid Name!");
             }
             if (age <= 0 || age > 128)
             {
-                System.Console.WriteLine("Age is Invalid!");
-                return;
+                throw new Exception("Invalid Age!");
             }
             Name = name!;
             Age = age;
@@ -106,9 +104,16 @@ namespace Tasks
                         Console.Write("Please, enter student's gpa: ");
                         var gpa = Convert.ToSingle(Console.ReadLine());
 
-                        var student = new Student(name!, age, year, gpa);
+                        try
+                        {
+                            var student = new Student(name!, age, year, gpa);
 
-                        database.AddStudent(student);
+                            database.AddStudent(student);
+                        }
+                        catch(Exception e)
+                        {
+                            System.Console.WriteLine(e.Message);
+                        }
                         break;
 
                     case 2:
@@ -121,19 +126,35 @@ namespace Tasks
                         Console.Write("Please, enter join year: ");
                         var joinYear = Convert.ToInt32(Console.ReadLine());
 
-                        var staff = new Staff(name2!, age2, salary, joinYear);
+                        try
+                        {
+                            var staff = new Staff(name2!, age2, salary, joinYear);
 
-                        database.AddStaff(staff);
+                            database.AddStaff(staff);
+                        }
+                        catch(Exception e)
+                        {
+                            System.Console.WriteLine(e.Message);
+                        }
                         break;
+
                     case 3:
                         Console.Write("Please, enter person's name: ");
                         var name3 = Console.ReadLine();
                         Console.Write("Please, enter person's age: ");
                         var age3 = Convert.ToInt32(Console.ReadLine());
 
-                        var person = new Person(name3!, age3);
+                        try
+                        {
+                            var person = new Person(name3!, age3);
 
-                        database.AddPerson(person);
+                            database.AddPerson(person);
+                        }
+                        catch(Exception e)
+                        {
+                            System.Console.WriteLine(e.Message);
+                        }
+
                         break;
 
                     case 4:
