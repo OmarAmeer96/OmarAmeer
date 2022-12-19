@@ -4,14 +4,25 @@ namespace Tasks
 {
     public class Person
     {
-        public string Name;
+        public string? Name;
         public int Age;
         public Person(string name, int age)
         {
-            Name = name;
+            if (name == null || name == "" || name.Length >= 32)
+            {
+                System.Console.WriteLine("Name is Invalid!");
+                return;
+            }
+            if (age <= 0 || age > 128)
+            {
+                System.Console.WriteLine("Age is Invalid!");
+                return;
+            }
+            Name = name!;
             Age = age;
         }
-        public virtual void Print() {
+        public virtual void Print()
+        {
             Console.WriteLine($"My name is {Name}, my age is {Age}");
         }
     }
@@ -79,7 +90,7 @@ namespace Tasks
 
             while (true)
             {
-                Console.WriteLine("1) Add Student - 2) Add Staff - 3) Print All");
+                Console.WriteLine("1)Add Student - 2)Add Staff - 3)Add Person - 4)Print All");
                 Console.Write("Your Option: ");
 
                 var option = Convert.ToInt32(Console.ReadLine());
